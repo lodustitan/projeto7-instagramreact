@@ -400,3 +400,7 @@ ion-icon {
   margin-left: 5px;
 }
 
+ion-icon[name="heart"] {
+  color: red;
+}
+

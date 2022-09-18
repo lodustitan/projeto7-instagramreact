@@ -1,6 +1,16 @@
+import React from "react"
 
 
 function Post(props) {
+    const [marked, setMarked] = React.useState(false);
+    const [liked, setLiked] = React.useState(false);
+
+    function toggleMark() {
+        setMarked(!marked);
+    }
+    function toggleLiked(){
+        setLiked(!liked);
+    }
     return (
         <div class="post">
             <div class="topo">
@@ -20,12 +30,12 @@ function Post(props) {
             <div class="fundo">
                 <div class="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={liked? "heart": "heart-outline"} onClick={() => toggleLiked()}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={marked? "bookmark": "bookmark-outline"} onClick={() => toggleMark()}></ion-icon>
                     </div>
                 </div>
 

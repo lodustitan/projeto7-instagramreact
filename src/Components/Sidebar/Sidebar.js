@@ -1,13 +1,22 @@
-
+import React from "react"
 function Usuario(props){
+    const [perfilImg, setPerfilImg] = React.useState(props.img);
+    const [perfilName, setPerfilName] = React.useState(props.name);
+    
+    function changeName(){
+        setPerfilName(prompt("Digite um novo nome", perfilName));   
+    }
+    function changeImage(){
+        setPerfilImg(prompt("coloque o URL da imagem"));
+    }
     return (
         <div class="usuario">
-            <img src={props.img} />
+            <img src={perfilImg} onClick={() => changeImage()} />
             <div class="texto">
                 <strong>{props.user}</strong>
                 <span>
-                    {props.name}
-                    <ion-icon name="pencil"></ion-icon>
+                    {perfilName}
+                    <ion-icon name="pencil" onClick={() => changeName()}></ion-icon>
                 </span>
             </div>
         </div>
