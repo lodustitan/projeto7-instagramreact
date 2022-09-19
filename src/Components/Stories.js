@@ -1,4 +1,4 @@
-function Storie(props) {
+function Story(props) {
     return (
         <div class="story">
             <div class="imagem">
@@ -26,7 +26,7 @@ function Stories() {
         <div class="stories">
             {
                 storie_list.map( (st)=> {
-                    return <Storie name={st.name} img={st.img} />
+                    return <Story name={st.name} img={st.img} />
                 } )
             }
 

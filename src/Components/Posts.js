@@ -2,6 +2,7 @@ import React from "react"
 
 
 function Post(props) {
+    const [likeCount, setLikeCount] = React.useState(Number(props.like))
     const [marked, setMarked] = React.useState(false);
     const [liked, setLiked] = React.useState(false);
 
@@ -9,6 +10,11 @@ function Post(props) {
         setMarked(!marked);
     }
     function toggleLiked(){
+        if(liked === false){
+            setLikeCount(likeCount + 1);
+        }else{
+            setLikeCount(likeCount - 1);
+        }
         setLiked(!liked);
     }
     return (
@@ -24,7 +30,7 @@ function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudo}/>
+                <img src={props.conteudo} onDoubleClick={() => toggleLiked()} />
             </div>
 
             <div class="fundo">
@@ -42,7 +48,7 @@ function Post(props) {
                 <div class="curtidas">
                     <img src="assets/img/respondeai.svg" />
                     <div class="texto">
-                        Curtido por <strong>{props.lastlike}</strong> e <strong>outras {Number(props.like).toLocaleString('pt-br')} pessoas</strong>
+                        Curtido por <strong>{props.lastlike}</strong> e <strong>outras {(likeCount).toLocaleString('pt-br')} pessoas</strong>
                     </div>
                 </div>
             </div>
@@ -55,7 +61,7 @@ function Posts() {
         {
             user: "lipinho",
             userimg: "./img/meowed.svg",
-            conteudo: "./img/gato-telefone.svg", 
+            conteudo: "./img/dog.svg", 
             like: "25520", 
             lastlike: "respondeai" 
         },

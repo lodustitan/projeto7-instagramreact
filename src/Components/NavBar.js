@@ -1,6 +1,6 @@
 
 
-function MenuNavegar(){
+function NavBar(){
     return (
         <div class="navbar">
 				<div class="container">
@@ -37,4 +37,4 @@ function MenuNavegar(){
     );
 }
 
-export default MenuNavegar;
+export default NavBar;

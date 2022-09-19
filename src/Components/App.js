@@ -1,19 +1,25 @@
 import './App.css';
-import Feed from './Feed/Feed';
-import Sidebar from './Sidebar/Sidebar';
-import MenuNavegar from "./MenuNavegar/MenuNavegar";
+import Feed from './Feed';
+import Sidebar from './Sidebar';
+import MenuNavegar from "./NavBar";
 
-
+function Corpo(props) {
+	return(
+		<div class="corpo">
+			{props.children}
+		</div>
+	);
+}
 
 function App() {
 	return (
 		<div className="App">
 			<MenuNavegar />
 
-			<div class="corpo">
+			<Corpo>
 				<Feed />
 				<Sidebar />
-			</div>
+			</Corpo>
 
 			<div class="fundo-mobile">
 				<ion-icon name="home"></ion-icon>

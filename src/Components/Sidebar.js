@@ -1,4 +1,6 @@
 import React from "react"
+
+
 function Usuario(props){
     const [perfilImg, setPerfilImg] = React.useState(props.img);
     const [perfilName, setPerfilName] = React.useState(props.name);
@@ -23,14 +25,25 @@ function Usuario(props){
     )
 }
 
+function Sugestoes(props){
+    return (
+        <div class="sugestoes">
+        <div class="titulo">
+            Sugestões para você
+            <div>Ver tudo</div>
+        </div>
+            {props.children}
+        </div>
+    )
+}
 function Sugestao(props) {
     return (
         <div class="sugestao">
             <div class="usuario">
-                <img src={props.img} />
+                <img src={props.img} alt="perfil"/>
                 <div class="texto">
                     <div class="nome">{props.name}</div>
-                    <div class="razao">{props.newUser? "Novo no Instagram": "Segue você"}</div>
+                    <div class="razao">{props.newUser?"Novo no Instagram":  "Segue você"}</div>
                 </div>
             </div>
 
@@ -56,11 +69,7 @@ function Sidebar() {
                 img="./img/catanacomics.svg"
             />
 
-            <div class="sugestoes">
-                <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
-                </div>
+            <Sugestoes>
                 {
                     sugestao_list.map( sg => {
                         return (
@@ -72,7 +81,7 @@ function Sidebar() {
                         )
                     } )
                 }
-            </div>
+            </Sugestoes>
 
             <div class="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes •

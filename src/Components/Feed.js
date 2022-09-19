@@ -1,5 +1,5 @@
-import Posts from "./Posts/Posts";
-import Stories from "./Stories/Stories";
+import Posts from "./Posts";
+import Stories from "./Stories";
 
 function Feed() {
     return (
