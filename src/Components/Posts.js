@@ -21,7 +21,7 @@ function Post(props) {
         <div class="post">
             <div class="topo">
                 <div class="usuario">
-                    <img src={props.userimg} />
+                    <img src={props.userimg} alt="imagem usuario"/>
                     {props.user}
                 </div>
                 <div class="acoes">
@@ -30,7 +30,7 @@ function Post(props) {
             </div>
 
             <div class="conteudo">
-                <img src={props.conteudo} onDoubleClick={() => toggleLiked()} />
+                <img src={props.conteudo} onDoubleClick={() => toggleLiked()} alt="conteudo" />
             </div>
 
             <div class="fundo">
@@ -46,7 +46,7 @@ function Post(props) {
                 </div>
 
                 <div class="curtidas">
-                    <img src="assets/img/respondeai.svg" />
+                    <img src={props.lastlikeimg} alt="likeimg" />
                     <div class="texto">
                         Curtido por <strong>{props.lastlike}</strong> e <strong>outras {(likeCount).toLocaleString('pt-br')} pessoas</strong>
                     </div>
@@ -59,18 +59,20 @@ function Post(props) {
 function Posts() {
     const post_list = [
         {
-            user: "lipinho",
-            userimg: "./img/meowed.svg",
+            user: "barked",
+            userimg: "./img/barked.svg",
             conteudo: "./img/dog.svg", 
-            like: "25520", 
-            lastlike: "respondeai" 
+            like: "99159", 
+            lastlike: "adorable_animals",
+            lastlikeimg: "./img/adorable_animals.svg" 
         },
         {
             user: "meowed",
             userimg: "./img/meowed.svg",
             conteudo: "./img/gato-telefone.svg", 
-            like: "2130", 
-            lastlike: "respondeai" 
+            like: "101523", 
+            lastlike: "respondeai",
+            lastlikeimg: "./img/respondeai.svg" 
         }
     ]
     return (
@@ -84,6 +86,7 @@ function Posts() {
                             conteudo={pt.conteudo} 
                             like={pt.like} 
                             lastlike={pt.lastlike} 
+                            lastlikeimg={pt.lastlikeimg}
                         />
                     )
                 } )

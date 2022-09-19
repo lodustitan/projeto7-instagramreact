@@ -6,14 +6,20 @@ function Usuario(props){
     const [perfilName, setPerfilName] = React.useState(props.name);
     
     function changeName(){
-        setPerfilName(prompt("Digite um novo nome", perfilName));   
+        const verify = prompt("Digite um novo nome", perfilName) 
+        if(verify){
+            setPerfilName(verify);   
+        }
     }
     function changeImage(){
-        setPerfilImg(prompt("coloque o URL da imagem"));
+        const verify = prompt("coloque o URL da imagem");
+        if(verify){
+            setPerfilImg(verify);
+        }
     }
     return (
         <div class="usuario">
-            <img src={perfilImg} onClick={() => changeImage()} />
+            <img src={perfilImg} onClick={() => changeImage()} alt="perfil img" />
             <div class="texto">
                 <strong>{props.user}</strong>
                 <span>

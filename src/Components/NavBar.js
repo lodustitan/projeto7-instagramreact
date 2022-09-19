@@ -1,13 +1,18 @@
 
 
 function NavBar(){
+
+	function backToMainPage(){
+		return window.location.href = '/';
+	}
+
     return (
         <div class="navbar">
 				<div class="container">
 					<div class="logo">
-						<ion-icon name="logo-instagram"></ion-icon>
+						<ion-icon name="logo-instagram" onClick={()=> backToMainPage()}></ion-icon>
 						<div class="separador"></div>
-						<img src="./img/logo.png" />
+						<img src="./img/logo.png" onClick={()=> backToMainPage()} alt="logo" />
 					</div>
 
 					<div class="logo-mobile">
@@ -15,7 +20,7 @@ function NavBar(){
 					</div>
 
 					<div class="instagram-mobile">
-						<img src="./img/logo.png" />
+						<img src="./img/logo.png" alt="logo"/>
 					</div>
 
 					<div class="pesquisa">
